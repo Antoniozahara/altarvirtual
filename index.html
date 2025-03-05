@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altar Virtual</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .deity {
+            display: inline-block;
+            margin: 20px;
+            padding: 15px;
+            background: #000;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+        }
+        .deity img {
+            width: 100px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .candle {
+            display: none;
+            margin-top: 10px;
+            width: 50px;
+            height: auto;
+        }
+        .lit {
+            display: block;
+            animation: flicker 1.5s infinite alternate;
+        }
+        @keyframes flicker {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 5px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Altar Virtual 🔥</h1>
+        <p>Elige una deidad y enciende una vela con tu intención.</p>
+        
+        <script>
+            const deities = [
+                { name: "🌙 Pomba Gira", img: "https://pm1.aminoapps.com/8216/953c9c5b5b5bd381dc2bfc4f3aacb6c354159f27r1-1080-1074v2_uhq.jpg", candle: "https://3.bp.blogspot.com/-w3nfdHqGmNo/VL1P7HBWewI/AAAAAAAACm0/Krwdtj4zq_c/s1600/vela1.gif" },
+                { name: "✨ Deidad de la Sanación", img: "URL_DE_LA_IMAGEN", candle: "URL_DEL_GIF_DE_LA_VELA" },
+                { name: "🔥 Deidad del Fuego", img: "URL_DE_LA_IMAGEN", candle: "URL_DEL_GIF_DE_LA_VELA" },
+                { name: "💧 Deidad del Agua", img: "URL_DE_LA_IMAGEN", candle: "URL_DEL_GIF_DE_LA_VELA" },
+                { name: "🌿 Deidad de la Naturaleza", img: "URL_DE_LA_IMAGEN", candle: "URL_DEL_GIF_DE_LA_VELA" },
+                { name: "☀ Deidad del Sol", img: "URL_DE_LA_IMAGEN", candle: "URL_DEL_GIF_DE_LA_VELA" },
+                { name: "🌑 Deidad de la Luna", img: "URL_DE_LA_IMAGEN", candle: "URL_DEL_GIF_DE_LA_VELA" },
+                { name: "⚡ Deidad del Trueno", img: "URL_DE_LA_IMAGEN", candle: "URL_DEL_GIF_DE_LA_VELA" },
+                { name: "🍃 Deidad del Viento", img: "URL_DE_LA_IMAGEN", candle: "URL_DEL_GIF_DE_LA_VELA" },
+                { name: "🌀 Deidad del Destino", img: "URL_DE_LA_IMAGEN", candle: "URL_DEL_GIF_DE_LA_VELA" }
+            ];
+
+            document.write('<div class="container">');
+            deities.forEach((deity, index) => {
+                document.write(`
+                    <div class="deity">
+                        <h2>${deity.name}</h2>
+                        <img src="${deity.img}" alt="${deity.name}">
+                        <button onclick="lightCandle('candle${index}', 'intention${index}')">Encender Vela</button>
+                        <img id="candle${index}" class="candle" src="${deity.candle}" alt="Vela encendida">
+                        <input type="text" id="intention${index}" placeholder="Escribe tu intención">
+                    </div>
+                `);
+            });
+            document.write('</div>');
+        </script>
+    </div>
+
+    <script>
+        function lightCandle(candleId, inputId) {
+            const candle = document.getElementById(candleId);
+            const intention = document.getElementById(inputId).value;
+            
+            if (intention.trim() !== "") {
+                candle.style.display = "block";
+                alert("Tu intención ha sido enviada: " + intention);
+            } else {
+                alert("Por favor, escribe una intención antes de encender la vela.");
+            }
+        }
+    </script>
+</body>
+</html>
