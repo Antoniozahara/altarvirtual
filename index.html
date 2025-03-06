@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +7,7 @@
     <title>Altar Virtual</title>
     <style>
         body {
-            background-image: url('https://static.vecteezy.com/system/resources/previews/006/262/403/non_2x/night-sky-with-stars-sparkling-on-black-background-free-photo.jpg'); /* https://static.vecteezy.com/system/resources/previews/006/262/403/non_2x/night-sky-with-stars-sparkling-on-black-background-free-photo.jpg */
+            background-image: url('https://static.vecteezy.com/system/resources/previews/006/262/403/non_2x/night-sky-with-stars-sparkling-on-black-background-free-photo.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -15,7 +16,7 @@
             text-align: center;
         }
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: auto;
             padding: 20px;
             display: flex;
@@ -25,21 +26,22 @@
         .deity {
             display: inline-block;
             margin: 20px;
-            padding: 15px;
+            padding: 20px;
             background: #000;
-            border-radius: 10px;
+            border-radius: 15px;
             text-align: center;
-            width: 250px;
+            width: 300px;
+            border: 4px solid gold; /* Borde dorado */
         }
         .deity img {
-            width: 100px;
+            width: 150px;
             height: auto;
             border-radius: 10px;
         }
         .candle {
             display: none;
             margin-top: 10px;
-            width: 50px;
+            width: 70px;
             height: auto;
         }
         .lit {
@@ -53,15 +55,28 @@
         button {
             background-color: #ffcc00;
             border: none;
-            padding: 10px;
+            padding: 12px;
             margin-top: 10px;
             cursor: pointer;
+            font-size: 16px;
         }
         input {
             display: block;
             margin: 10px auto;
-            padding: 5px;
-            width: 80%;
+            padding: 10px;
+            width: 90%;
+            font-size: 16px;
+        }
+        @media (max-width: 768px) {
+            .deity {
+                width: 90%; /* Ajustar tamaño en móviles */
+            }
+            .deity img {
+                width: 180px;
+            }
+            .candle {
+                width: 80px;
+            }
         }
     </style>
 </head>
